@@ -1,37 +1,11 @@
+#include <vector>
+#include <algorithm>
+
 #include "cube.hpp"
 
-Cube::Cube() {
-    top = (WHITE << TOP_LEFT) + (WHITE << TOP_MIDDLE) + (WHITE << TOP_RIGHT) +
-          (WHITE << MIDDLE_LEFT) + (WHITE << CENTER) + (WHITE << MIDDLE_RIGHT) +
-          (WHITE << BOTTOM_LEFT) + (WHITE << BOTTOM_MIDDLE) + (WHITE << BOTTOM_RIGHT);
-    bottom = (YELLOW << TOP_LEFT) + (YELLOW << TOP_MIDDLE) + (YELLOW << TOP_RIGHT) +
-             (YELLOW << MIDDLE_LEFT) + (YELLOW << CENTER) + (YELLOW << MIDDLE_RIGHT) +
-             (YELLOW << BOTTOM_LEFT) + (YELLOW << BOTTOM_MIDDLE) + (YELLOW << BOTTOM_RIGHT);
+using namespace std;
 
-    front = (GREEN << TOP_LEFT) + (GREEN << TOP_MIDDLE) + (GREEN << TOP_RIGHT) +
-            (GREEN << MIDDLE_LEFT) + (GREEN << CENTER) + (GREEN << MIDDLE_RIGHT) +
-            (GREEN << BOTTOM_LEFT) + (GREEN << BOTTOM_MIDDLE) + (GREEN << BOTTOM_RIGHT);
-    back = (BLUE << TOP_LEFT) + (BLUE << TOP_MIDDLE) + (BLUE << TOP_RIGHT) +
-           (BLUE << MIDDLE_LEFT) + (BLUE << CENTER) + (BLUE << MIDDLE_RIGHT) +
-           (BLUE << BOTTOM_LEFT) + (BLUE << BOTTOM_MIDDLE) + (BLUE << BOTTOM_RIGHT);
-
-    left = (ORANGE << TOP_LEFT) + (ORANGE << TOP_MIDDLE) + (ORANGE << TOP_RIGHT) +
-           (ORANGE << MIDDLE_LEFT) + (ORANGE << CENTER) + (ORANGE << MIDDLE_RIGHT) +
-           (ORANGE << BOTTOM_LEFT) + (ORANGE << BOTTOM_MIDDLE) + (ORANGE << BOTTOM_RIGHT);
-    right = (RED << TOP_LEFT) + (RED << TOP_MIDDLE) + (RED << TOP_RIGHT) +
-            (RED << MIDDLE_LEFT) + (RED << CENTER) + (RED << MIDDLE_RIGHT) +
-            (RED << BOTTOM_LEFT) + (RED << BOTTOM_MIDDLE) + (RED << BOTTOM_RIGHT);
-
-    // top = 0;
-    // bottom = 19173961;
-    // front = 38347922;
-    // back = 57521883;
-    // left = 95869805;
-    // right = 76695844;
-};
-Cube::~Cube() {};
-
-std::string getColor(uint32_t num) {
+string getColor(uint32_t num) {
     if (num == WHITE)
         return "W";
     else if (num == YELLOW)
@@ -45,13 +19,42 @@ std::string getColor(uint32_t num) {
     else if (num == ORANGE)
         return "O";
     else
-        std::cout << num << std::endl;
+        cout << num << endl;
         return "?";
 }
 
-std::string Cube::toString() {
-    std::string space = "      ";
-    std::string msg = "";
+Cube::Cube() {
+    top = WHITE_FACE;
+    bottom = YELLOW_FACE;
+    front = GREEN_FACE;
+    back = BLUE_FACE;
+    left = ORANGE_FACE;
+    right = RED_FACE;
+};
+
+Cube::Cube(const Cube &cube) {
+    top = cube.top;
+    front = cube.front;
+    left = cube.left;
+    right = cube.right;
+    back = cube.back;
+    bottom = cube.bottom;
+};
+
+Cube::~Cube() = default;
+
+bool Cube::isSolved() {
+    vector<uint32_t> solved_faces = {WHITE_FACE, YELLOW_FACE, GREEN_FACE, BLUE_FACE, RED_FACE, ORANGE_FACE};
+    vector<uint32_t> faces = {top, bottom, left, right, front, back};
+    sort(solved_faces.begin(), solved_faces.end());
+    sort(faces.begin(), faces.end());
+
+    return solved_faces == faces;
+};
+
+string Cube::toString() {
+    string space = "      ";
+    string msg = "";
 
     // top
     msg += space;
@@ -128,7 +131,21 @@ std::string Cube::toString() {
 };
 
 int main() {
-    std::cout << "Hello world" << std::endl;
     Cube cube = Cube();
-    std::cout << cube.toString();
-}
+    cout << cube.toString();
+    if(cube.isSolved()) {
+        cout << "Cube is solved :)" << endl;
+    } else {
+        cout << "Cube is not solved :(" << endl;
+    }
+    // cout << WHITE_FACE << endl << YELLOW_FACE << endl << GREEN_FACE << endl
+    //      << BLUE_FACE << endl << RED_FACE << endl << ORANGE_FACE << endl;
+    cout << "Performing R turn" << endl;
+    cube.R();
+    cout << cube.toString();
+    if(cube.isSolved()) {
+        cout << "Cube is solved :)" << endl;
+    } else {
+        cout << "Cube is not solved :(" << endl;
+    }
+};
