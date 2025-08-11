@@ -14,9 +14,25 @@ void set(uint32_t &num, int to, uint32_t set_val) {
     num |= (set_val << to);
 }
 
-// Cube& Cube::U() {};
+Cube& Cube::U() {
+    uint32_t temp = 0;
 
-// Cube& Cube::D() {};
+    // corner
+
+    // edge
+
+    return *this;
+};
+
+Cube& Cube::D() {
+    uint32_t temp = 0;
+
+    // corner
+
+    // edge
+
+    return *this;
+};
 
 Cube& Cube::L() {
     uint32_t temp = 0;
