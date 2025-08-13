@@ -160,13 +160,21 @@ int main() {
     //     cout << "Cube is not solved :(" << endl;
     // }
 
-    cout << "Performing U turn" << endl;
-    cube.U().R().U();
+    // cout << "Performing U turn" << endl;
+    // cube.U();
+    // cout << cube.toString();
+    // if(cube.isSolved()) {
+    //     cout << "Cube is solved :)" << endl;
+    // } else {
+    //     cout << "Cube is not solved :(" << endl;
+    // }
+
+    cout << "Performing D turn" << endl;
+    cube.D();
     cout << cube.toString();
     if(cube.isSolved()) {
         cout << "Cube is solved :)" << endl;
     } else {
         cout << "Cube is not solved :(" << endl;
     }
-
-};
+}

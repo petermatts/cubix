@@ -56,8 +56,36 @@ Cube& Cube::D() {
     uint32_t temp = 0;
 
     // corner
+    temp = get(bottom, TOP_LEFT);
+    set(bottom, TOP_LEFT, get(bottom, BOTTOM_LEFT));
+    set(bottom, BOTTOM_LEFT, get(bottom, BOTTOM_RIGHT));
+    set(bottom, BOTTOM_RIGHT, get(bottom, TOP_RIGHT));
+    set(bottom, TOP_RIGHT, temp);
+
+    temp = get(back, BOTTOM_RIGHT);
+    set(back, BOTTOM_RIGHT, get(right, BOTTOM_RIGHT));
+    set(right, BOTTOM_RIGHT, get(front, BOTTOM_RIGHT));
+    set(front, BOTTOM_RIGHT, get(left, BOTTOM_RIGHT));
+    set(left, BOTTOM_RIGHT, temp);
+
+    temp = get(back, BOTTOM_LEFT);
+    set(back, BOTTOM_LEFT, get(right, BOTTOM_LEFT));
+    set(right, BOTTOM_LEFT, get(front, BOTTOM_LEFT));
+    set(front, BOTTOM_LEFT, get(left, BOTTOM_LEFT));
+    set(left, BOTTOM_LEFT, temp);
 
     // edge
+    temp = get(bottom, TOP_MIDDLE);
+    set(bottom, TOP_MIDDLE, get(bottom, MIDDLE_LEFT));
+    set(bottom, MIDDLE_LEFT, get(bottom, BOTTOM_MIDDLE));
+    set(bottom, BOTTOM_MIDDLE, get(bottom, MIDDLE_RIGHT));
+    set(bottom, MIDDLE_RIGHT, temp);
+
+    temp = get(back, BOTTOM_MIDDLE);
+    set(back, BOTTOM_MIDDLE, get(right, BOTTOM_MIDDLE));
+    set(right, BOTTOM_MIDDLE, get(front, BOTTOM_MIDDLE));
+    set(front, BOTTOM_MIDDLE, get(left, BOTTOM_MIDDLE));
+    set(left, BOTTOM_MIDDLE, temp);
 
     return *this;
 }
