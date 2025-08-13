@@ -68,7 +68,7 @@ class Cube {
     uint32_t right;
     uint32_t back;
     uint32_t bottom;
-}
+};
 
 std::string getColor(uint32_t num);
 
