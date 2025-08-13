@@ -18,11 +18,39 @@ Cube& Cube::U() {
     uint32_t temp = 0;
 
     // corner
+    temp = get(top, TOP_LEFT);
+    set(top, TOP_LEFT, get(top, BOTTOM_LEFT));
+    set(top, BOTTOM_LEFT, get(top, BOTTOM_RIGHT));
+    set(top, BOTTOM_RIGHT, get(top, TOP_RIGHT));
+    set(top, TOP_RIGHT, temp);
+
+    temp = get(back, TOP_RIGHT);
+    set(back, TOP_RIGHT, get(left, TOP_RIGHT));
+    set(left, TOP_RIGHT, get(front, TOP_RIGHT));
+    set(front, TOP_RIGHT, get(right, TOP_RIGHT));
+    set(right, TOP_RIGHT, temp);
+
+    temp = get(back, TOP_LEFT);
+    set(back, TOP_LEFT, get(left, TOP_LEFT));
+    set(left, TOP_LEFT, get(front, TOP_LEFT));
+    set(front, TOP_LEFT, get(right, TOP_LEFT));
+    set(right, TOP_LEFT, temp);
 
     // edge
+    temp = get(top, TOP_MIDDLE);
+    set(top, TOP_MIDDLE, get(top, MIDDLE_LEFT));
+    set(top, MIDDLE_LEFT, get(top, BOTTOM_MIDDLE));
+    set(top, BOTTOM_MIDDLE, get(top, MIDDLE_RIGHT));
+    set(top, MIDDLE_RIGHT, temp);
+
+    temp = get(back, TOP_MIDDLE);
+    set(back, TOP_MIDDLE, get(left, TOP_MIDDLE));
+    set(left, TOP_MIDDLE, get(front, TOP_MIDDLE));
+    set(front, TOP_MIDDLE, get(right, TOP_MIDDLE));
+    set(right, TOP_MIDDLE, temp);
 
     return *this;
-};
+}
 
 Cube& Cube::D() {
     uint32_t temp = 0;
@@ -32,7 +60,7 @@ Cube& Cube::D() {
     // edge
 
     return *this;
-};
+}
 
 Cube& Cube::L() {
     uint32_t temp = 0;
@@ -70,7 +98,7 @@ Cube& Cube::L() {
     set(front, MIDDLE_LEFT, temp);
 
     return *this;
-};
+}
 
 Cube& Cube::R() {
     uint32_t temp = 0;
@@ -108,15 +136,15 @@ Cube& Cube::R() {
     set(back, MIDDLE_LEFT, temp);
 
     return *this;
-};
+}
 
-// Cube& Cube::F() {};
+// Cube& Cube::F() {}
 
-// Cube& Cube::B() {};
+// Cube& Cube::B() {}
 
-// Cube& Cube::U_prime() {};
+// Cube& Cube::U_prime() {}
 
-// Cube& Cube::D_prime() {};
+// Cube& Cube::D_prime() {}
 
 Cube & Cube::L_prime() {
     uint32_t temp = 0;
@@ -154,7 +182,7 @@ Cube & Cube::L_prime() {
     set(back, MIDDLE_RIGHT, temp);
 
     return *this;
-};
+}
 
 Cube& Cube::R_prime() {
     uint32_t temp = 0;
@@ -192,8 +220,8 @@ Cube& Cube::R_prime() {
     set(front, MIDDLE_RIGHT, temp);
 
     return *this;
-};
+}
 
-// Cube& Cube::F_prime() {};
+// Cube& Cube::F_prime() {}
 
-// Cube& Cube::B_prime() {};
+// Cube& Cube::B_prime() {}

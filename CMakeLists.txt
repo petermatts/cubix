@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(cubix
     src/cube.cpp
     src/moves.cpp
-    src/common.cpp
+    # src/common.cpp
 )
 
 target_include_directories(cubix PRIVATE ${CMAKE_SOURCE_DIR}/src)
@@ -27,7 +27,7 @@ include(FetchContent)
 
 FetchContent_Declare(
     googletest
-    URL https://github.com/google/googletest/archive/refs/tags/release-1.14.0.zip
+    URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
 )
 
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -59,7 +59,7 @@ swig_add_library(cubix_python
     SOURCES interface/cubix.i
             src/cube.cpp
             src/moves.cpp
-            src/common.cpp
+            # src/common.cpp
 )
 
 target_include_directories(cubix_python PRIVATE ${CMAKE_SOURCE_DIR}/src)

@@ -142,14 +142,14 @@ int main() {
     // cout << WHITE_FACE << endl << YELLOW_FACE << endl << GREEN_FACE << endl
     //      << BLUE_FACE << endl << RED_FACE << endl << ORANGE_FACE << endl;
 
-    cout << "Performing R turn" << endl;
-    cube.R();
-    cout << cube.toString();
-    if(cube.isSolved()) {
-        cout << "Cube is solved :)" << endl;
-    } else {
-        cout << "Cube is not solved :(" << endl;
-    }
+    // cout << "Performing R turn" << endl;
+    // cube.R();
+    // cout << cube.toString();
+    // if(cube.isSolved()) {
+    //     cout << "Cube is solved :)" << endl;
+    // } else {
+    //     cout << "Cube is not solved :(" << endl;
+    // }
 
     // cout << "Performing L turn" << endl;
     // cube.L();
@@ -159,4 +159,14 @@ int main() {
     // } else {
     //     cout << "Cube is not solved :(" << endl;
     // }
+
+    cout << "Performing U turn" << endl;
+    cube.U().R().U();
+    cout << cube.toString();
+    if(cube.isSolved()) {
+        cout << "Cube is solved :)" << endl;
+    } else {
+        cout << "Cube is not solved :(" << endl;
+    }
+
 };

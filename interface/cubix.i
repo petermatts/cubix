@@ -1,9 +1,9 @@
 %module cubix
 
 %{
-#include "cube.hpp"
-#include "common.h"
+#include "../src/cube.hpp"
+#include "../src/common.h"
 %}
 
-%include "cube.hpp"
-%include "common.h"
+%include "../src/cube.hpp"
+%include "../src/common.h"
