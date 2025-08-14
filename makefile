@@ -6,6 +6,8 @@ all:
 	cmake .. && \
 	cmake --build .
 
+	cp build/Debug/_cubix_python.pyd build/_cubix_python.pyd
+
 build: 
 	cd src && \
 	g++ cube.cpp moves.cpp -o a.exe

@@ -130,51 +130,51 @@ string Cube::toString() {
     return msg;
 };
 
-int main() {
-    Cube cube = Cube();
-    cout << cube.toString();
-    if(cube.isSolved()) {
-        cout << "Cube is solved :)" << endl;
-    } else {
-        cout << "Cube is not solved :(" << endl;
-    }
+// int main() {
+//     Cube cube = Cube();
+//     cout << cube.toString();
+//     if(cube.isSolved()) {
+//         cout << "Cube is solved :)" << endl;
+//     } else {
+//         cout << "Cube is not solved :(" << endl;
+//     }
 
-    // cout << WHITE_FACE << endl << YELLOW_FACE << endl << GREEN_FACE << endl
-    //      << BLUE_FACE << endl << RED_FACE << endl << ORANGE_FACE << endl;
+//     // cout << WHITE_FACE << endl << YELLOW_FACE << endl << GREEN_FACE << endl
+//     //      << BLUE_FACE << endl << RED_FACE << endl << ORANGE_FACE << endl;
 
-    // cout << "Performing R turn" << endl;
-    // cube.R();
-    // cout << cube.toString();
-    // if(cube.isSolved()) {
-    //     cout << "Cube is solved :)" << endl;
-    // } else {
-    //     cout << "Cube is not solved :(" << endl;
-    // }
+//     // cout << "Performing R turn" << endl;
+//     // cube.R();
+//     // cout << cube.toString();
+//     // if(cube.isSolved()) {
+//     //     cout << "Cube is solved :)" << endl;
+//     // } else {
+//     //     cout << "Cube is not solved :(" << endl;
+//     // }
 
-    // cout << "Performing L turn" << endl;
-    // cube.L();
-    // cout << cube.toString();
-    // if(cube.isSolved()) {
-    //     cout << "Cube is solved :)" << endl;
-    // } else {
-    //     cout << "Cube is not solved :(" << endl;
-    // }
+//     // cout << "Performing L turn" << endl;
+//     // cube.L();
+//     // cout << cube.toString();
+//     // if(cube.isSolved()) {
+//     //     cout << "Cube is solved :)" << endl;
+//     // } else {
+//     //     cout << "Cube is not solved :(" << endl;
+//     // }
 
-    // cout << "Performing U turn" << endl;
-    // cube.U();
-    // cout << cube.toString();
-    // if(cube.isSolved()) {
-    //     cout << "Cube is solved :)" << endl;
-    // } else {
-    //     cout << "Cube is not solved :(" << endl;
-    // }
+//     // cout << "Performing U turn" << endl;
+//     // cube.U();
+//     // cout << cube.toString();
+//     // if(cube.isSolved()) {
+//     //     cout << "Cube is solved :)" << endl;
+//     // } else {
+//     //     cout << "Cube is not solved :(" << endl;
+//     // }
 
-    cout << "Performing D turn" << endl;
-    cube.D();
-    cout << cube.toString();
-    if(cube.isSolved()) {
-        cout << "Cube is solved :)" << endl;
-    } else {
-        cout << "Cube is not solved :(" << endl;
-    }
-}
+//     cout << "Performing D turn" << endl;
+//     cube.D();
+//     cout << cube.toString();
+//     if(cube.isSolved()) {
+//         cout << "Cube is solved :)" << endl;
+//     } else {
+//         cout << "Cube is not solved :(" << endl;
+//     }
+// }
