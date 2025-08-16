@@ -20,8 +20,8 @@ class Cube {
     // Cube F();
     // Cube B();
 
-    // Cube U_prime();
-    // Cube D_prime();
+    Cube U_prime();
+    Cube D_prime();
     Cube L_prime();
     Cube R_prime();
     // Cube F_prime();
@@ -60,7 +60,7 @@ class Cube {
 
     bool isSolved();
     std::string toString();
-    std::string __str__();
+    std::string __str__(); //? add more special python support
 
     private:
     uint32_t top;

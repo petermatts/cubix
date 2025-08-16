@@ -1,51 +1,13 @@
-cmake_minimum_required(VERSION 3.14)
-project(Cubix VERSION 1.0 LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.15)
+project(Cubix LANGUAGES CXX)
 
-# C++20
-set(CMAKE_CXX_STANDARD 20)
+# Use C++17 or later
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# ---------------------
-# Executable
-# ---------------------
-# add_executable(cubix
-#     src/cube.cpp
-#     src/moves.cpp
-#     # src/common.cpp
-# )
-
-# target_include_directories(cubix PRIVATE ${CMAKE_SOURCE_DIR}/src)
-
-# ---------------------
-# Google Test Setup
-# ---------------------
-# include(CTest)
-# enable_testing()
-# include(FetchContent)
-
-# FetchContent_Declare(
-#     googletest
-#     URL https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
-# )
-
-# set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-# FetchContent_MakeAvailable(googletest)
-
-# add_executable(cubix_tests
-#     tests/test_main.cpp
-# )
-
-# target_link_libraries(cubix_tests GTest::gtest_main)
-# target_include_directories(cubix_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
-# include(GoogleTest)
-# gtest_discover_tests(cubix_tests)
-
-# ---------------------
-# SWIG + Python Module
-# ---------------------
+# Enable SWIG and Python
 find_package(SWIG REQUIRED)
-include(UseSWIG)
-
+include(${SWIG_USE_FILE})
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 
 foreach(lib ${Python3_LIBRARIES})
@@ -54,21 +16,38 @@ foreach(lib ${Python3_LIBRARIES})
     endif()
 endforeach()
 
+# Add the main source directory
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-include_directories(${Python3_INCLUDE_DIRS})
+
+# Create a shared library for core logic
+add_library(cubix_core
+    src/cube.cpp
+    src/moves.cpp
+)
+target_include_directories(cubix_core PUBLIC src)
+
+
+# SWIG configuration
+set_source_files_properties(interface/cubix.i PROPERTIES CPLUSPLUS ON)
+set(CMAKE_SWIG_FLAGS "")
 
 add_definitions(-DSWIG_PYTHON_INTERPRETER_NO_DEBUG)
 
-set(CMAKE_SWIG_FLAGS "")
-set_source_files_properties(interface/cubix.i PROPERTIES CPLUSPLUS ON)
 swig_add_library(cubix_python
-    TYPE MODULE
     LANGUAGE python
+    TYPE MODULE
     SOURCES interface/cubix.i
             src/cube.cpp
             src/moves.cpp
             # src/common.cpp
 )
 
-target_include_directories(cubix_python PRIVATE ${CMAKE_SOURCE_DIR}/src)
-swig_link_libraries(cubix_python ${Python3_LIB_ONLY})
+# Link SWIG module with Python and core logic
+target_include_directories(cubix_python PRIVATE ${Python3_INCLUDE_DIRS})
+swig_link_libraries(cubix_python ${Python3_LIB_ONLY} cubix_core)
+
+# Build main executable
+add_executable(cubix main.cpp)
+target_link_libraries(cubix PRIVATE cubix_core)
+
+add_subdirectory(tests)

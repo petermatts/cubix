@@ -1,5 +1,5 @@
-.PHONY: clean all build run
-.SILENT: clean build run
+.PHONY: clean all run
+.SILENT: clean all run
 
 all:
 	mkdir -p build && cd build && \
@@ -8,12 +8,8 @@ all:
 
 	cp build/Debug/_cubix_python.pyd build/_cubix_python.pyd
 
-build: 
-	cd src && \
-	g++ cube.cpp moves.cpp -o a.exe
-
-run: build
-	cd src && ./a.exe
+run:
+	cd build/Debug && ./cubix.exe
 
 clean:
 	rm -rf build
