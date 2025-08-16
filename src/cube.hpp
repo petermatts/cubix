@@ -13,53 +13,54 @@ class Cube {
     Cube(const Cube &cube);
     ~Cube();
 
-    Cube& U();
-    Cube& D();
-    Cube& L();
-    Cube& R();
-    // Cube& F();
-    // Cube& B();
+    Cube U();
+    Cube D();
+    Cube L();
+    Cube R();
+    // Cube F();
+    // Cube B();
 
-    // Cube& U_prime();
-    // Cube& D_prime();
-    Cube& L_prime();
-    Cube& R_prime();
-    // Cube& F_prime();
-    // Cube& B_prime();
+    // Cube U_prime();
+    // Cube D_prime();
+    Cube L_prime();
+    Cube R_prime();
+    // Cube F_prime();
+    // Cube B_prime();
 
-    // Cube& U2();
-    // Cube& D2();
-    // Cube& L2();
-    // Cube& R2();
-    // Cube& F2();
-    // Cube& B2();
+    // Cube U2();
+    // Cube D2();
+    // Cube L2();
+    // Cube R2();
+    // Cube F2();
+    // Cube B2();
 
-    // Cube& M();
-    // Cube& E();
-    // Cube& S();
+    // Cube M();
+    // Cube E();
+    // Cube S();
 
-    // Cube& M_prime();
-    // Cube& E_prime();
-    // Cube& S_prime();
+    // Cube M_prime();
+    // Cube E_prime();
+    // Cube S_prime();
 
-    // Cube& M2();
-    // Cube& E2();
-    // Cube& S2();
+    // Cube M2();
+    // Cube E2();
+    // Cube S2();
 
-    // Cube& X();
-    // Cube& Y();
-    // Cube& Z();
+    // Cube X();
+    // Cube Y();
+    // Cube Z();
 
-    // Cube& X_prime();
-    // Cube& Y_prime();
-    // Cube& Z_prime();
+    // Cube X_prime();
+    // Cube Y_prime();
+    // Cube Z_prime();
 
-    // Cube& X2();
-    // Cube& Y2();
-    // Cube& Z2();
+    // Cube X2();
+    // Cube Y2();
+    // Cube Z2();
 
     bool isSolved();
     std::string toString();
+    std::string __str__();
 
     private:
     uint32_t top;

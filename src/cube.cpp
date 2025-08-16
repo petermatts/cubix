@@ -30,7 +30,7 @@ Cube::Cube() {
     back = BLUE_FACE;
     left = ORANGE_FACE;
     right = RED_FACE;
-};
+}
 
 Cube::Cube(const Cube &cube) {
     top = cube.top;
@@ -39,7 +39,7 @@ Cube::Cube(const Cube &cube) {
     right = cube.right;
     back = cube.back;
     bottom = cube.bottom;
-};
+}
 
 Cube::~Cube() = default;
 
@@ -50,7 +50,7 @@ bool Cube::isSolved() {
     sort(faces.begin(), faces.end());
 
     return solved_faces == faces;
-};
+}
 
 string Cube::toString() {
     string space = "      ";
@@ -128,7 +128,11 @@ string Cube::toString() {
     msg += space + space + "\n";
 
     return msg;
-};
+}
+
+string Cube::__str__() {
+    return toString();
+}
 
 // int main() {
 //     Cube cube = Cube();
