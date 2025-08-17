@@ -1,5 +1,6 @@
 # Manual Additions
 docs/notes
+.vscode
 
 # CMake
 build

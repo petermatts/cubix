@@ -1,6 +1,0 @@
-- [ ] implement cube in cpp
-- [ ] create SWIG interface
-- [x] add cmake
-- [ ] unit tests
-- [x] add the above todos to git issues
-- [ ] set up more advanced VSCode C/C++ settings (autoformatting)

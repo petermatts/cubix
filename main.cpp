@@ -49,15 +49,15 @@ int main() {
     // cout << c.toString();
     // solvedMsg(c);
 
-    cout << "Performing D turn" << endl;
-    c = cube.D();
-    cout << c.toString();
-    solvedMsg(c);
+    // cout << "Performing D turn" << endl;
+    // c = cube.D();
+    // cout << c.toString();
+    // solvedMsg(c);
 
-    cout << "Performing D' turn" << endl;
-    c = cube.D_prime();
-    cout << c.toString();
-    solvedMsg(c);
+    // cout << "Performing D' turn" << endl;
+    // c = cube.D_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
 
     // cout << "Performing F turn" << endl;
     // c = cube.F();
@@ -76,6 +76,36 @@ int main() {
 
     // cout << "Performing B' turn" << endl;
     // c = cube.B_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing M turn" << endl;
+    // c = cube.M();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing M' turn" << endl;
+    // c = cube.M_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing E turn" << endl;
+    // c = cube.E();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing E' turn" << endl;
+    // c = cube.E_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing S turn" << endl;
+    // c = cube.S();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing S' turn" << endl;
+    // c = cube.S_prime();
     // cout << c.toString();
     // solvedMsg(c);
 }

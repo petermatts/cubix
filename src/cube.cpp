@@ -1,22 +1,36 @@
 #include <vector>
 #include <algorithm>
 
+// #ifdef _WIN32
+// #include <windows.h>
+// #endif
+
 #include "cube.hpp"
 
 using namespace std;
 
 string getColor(uint32_t num) {
+    // #ifdef _WIN32
+    // SetConsoleOutputCP(CP_UTF8);
+    // #endif
+
     if (num == WHITE)
+        // return "⬜";
         return "W";
     else if (num == YELLOW)
+        // return "🟨";
         return "Y";
     else if (num == GREEN)
+        // return "🟩";
         return "G";
     else if (num == BLUE)
+        // return "🟦";
         return "B";
     else if (num == RED)
+        // return "🟥";
         return "R";
     else if (num == ORANGE)
+        // return "🟧";
         return "O";
     else
         // cout << num << endl;

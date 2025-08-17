@@ -17,15 +17,15 @@ class Cube {
     Cube D();
     Cube L();
     Cube R();
-    // Cube F();
-    // Cube B();
+    Cube F();
+    Cube B();
 
     Cube U_prime();
     Cube D_prime();
     Cube L_prime();
     Cube R_prime();
-    // Cube F_prime();
-    // Cube B_prime();
+    Cube F_prime();
+    Cube B_prime();
 
     // Cube U2();
     // Cube D2();
@@ -34,13 +34,13 @@ class Cube {
     // Cube F2();
     // Cube B2();
 
-    // Cube M();
-    // Cube E();
-    // Cube S();
+    Cube M();
+    Cube E();
+    Cube S();
 
-    // Cube M_prime();
-    // Cube E_prime();
-    // Cube S_prime();
+    Cube M_prime();
+    Cube E_prime();
+    Cube S_prime();
 
     // Cube M2();
     // Cube E2();
