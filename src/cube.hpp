@@ -46,21 +46,22 @@ class Cube {
     Cube E2();
     Cube S2();
 
-    // Cube X();
-    // Cube Y();
-    // Cube Z();
+    Cube X();
+    Cube Y();
+    Cube Z();
 
-    // Cube X_prime();
-    // Cube Y_prime();
-    // Cube Z_prime();
+    Cube X_prime();
+    Cube Y_prime();
+    Cube Z_prime();
 
-    // Cube X2();
-    // Cube Y2();
-    // Cube Z2();
+    Cube X2();
+    Cube Y2();
+    Cube Z2();
 
     bool isSolved();
     std::string toString();
-    std::string __str__(); //? add more special python support
+    std::string __str__();
+    std::string __repr__(); //? add more special python support
 
     private:
     uint32_t top;

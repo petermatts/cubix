@@ -147,3 +147,7 @@ string Cube::toString() {
 string Cube::__str__() {
     return toString();
 }
+
+string Cube::__repr__() {
+    return toString();
+}

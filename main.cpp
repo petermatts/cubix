@@ -153,4 +153,49 @@ int main() {
     // c = cube.S2();
     // cout << c.toString();
     // solvedMsg(c);
+
+    // cout << "Performing X rotation:" << endl;
+    // c = cube.X();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing Y rotation:" << endl;
+    // c = cube.Y();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing Z rotation:" << endl;
+    // c = cube.Z();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing X' rotation:" << endl;
+    // c = cube.X_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing Y' rotation:" << endl;
+    // c = cube.Y_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing Z' rotation:" << endl;
+    // c = cube.Z_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing X2 rotation:" << endl;
+    // c = cube.X2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing Y2 rotation:" << endl;
+    // c = cube.Y2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing Z2 rotation:" << endl;
+    // c = cube.Z2();
+    // cout << c.toString();
+    // solvedMsg(c);
 }
