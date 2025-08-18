@@ -27,12 +27,12 @@ class Cube {
     Cube F_prime();
     Cube B_prime();
 
-    // Cube U2();
-    // Cube D2();
-    // Cube L2();
-    // Cube R2();
-    // Cube F2();
-    // Cube B2();
+    Cube U2();
+    Cube D2();
+    Cube L2();
+    Cube R2();
+    Cube F2();
+    Cube B2();
 
     Cube M();
     Cube E();
@@ -42,9 +42,9 @@ class Cube {
     Cube E_prime();
     Cube S_prime();
 
-    // Cube M2();
-    // Cube E2();
-    // Cube S2();
+    Cube M2();
+    Cube E2();
+    Cube S2();
 
     // Cube X();
     // Cube Y();

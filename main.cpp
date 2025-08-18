@@ -19,93 +19,138 @@ int main() {
     // cout << WHITE_FACE << endl << YELLOW_FACE << endl << GREEN_FACE << endl
     //      << BLUE_FACE << endl << RED_FACE << endl << ORANGE_FACE << endl;
 
-    // cout << "Performing R turn" << endl;
+    // cout << "Performing R turn:" << endl;
     // c = cube.R();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing R' turn" << endl;
+    // cout << "Performing R' turn:" << endl;
     // c = cube.R_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing L turn" << endl;
+    // cout << "Performing L turn:" << endl;
     // c = cube.L();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing L' turn" << endl;
+    // cout << "Performing L' turn:" << endl;
     // c = cube.L_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing U turn" << endl;
+    // cout << "Performing U turn:" << endl;
     // c = cube.U();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing U' turn" << endl;
+    // cout << "Performing U' turn:" << endl;
     // c = cube.U_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing D turn" << endl;
+    // cout << "Performing D turn:" << endl;
     // c = cube.D();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing D' turn" << endl;
+    // cout << "Performing D' turn:" << endl;
     // c = cube.D_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing F turn" << endl;
+    // cout << "Performing F turn:" << endl;
     // c = cube.F();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing F' turn" << endl;
+    // cout << "Performing F' turn:" << endl;
     // c = cube.F_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing B turn" << endl;
+    // cout << "Performing B turn:" << endl;
     // c = cube.B();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing B' turn" << endl;
+    // cout << "Performing B' turn:" << endl;
     // c = cube.B_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing M turn" << endl;
+    // cout << "Performing M turn:" << endl;
     // c = cube.M();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing M' turn" << endl;
+    // cout << "Performing M' turn:" << endl;
     // c = cube.M_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing E turn" << endl;
+    // cout << "Performing E turn:" << endl;
     // c = cube.E();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing E' turn" << endl;
+    // cout << "Performing E' turn:" << endl;
     // c = cube.E_prime();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing S turn" << endl;
+    // cout << "Performing S turn:" << endl;
     // c = cube.S();
     // cout << c.toString();
     // solvedMsg(c);
 
-    // cout << "Performing S' turn" << endl;
+    // cout << "Performing S' turn:" << endl;
     // c = cube.S_prime();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing U2 turn:" << endl;
+    // c = cube.U2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing D2 turn:" << endl;
+    // c = cube.D2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing L2 turn:" << endl;
+    // c = cube.L2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing R2 turn:" << endl;
+    // c = cube.R2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing F2 turn:" << endl;
+    // c = cube.F2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing B2 turn:" << endl;
+    // c = cube.B2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing M2 turn:" << endl;
+    // c = cube.M2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing E2 turn:" << endl;
+    // c = cube.E2();
+    // cout << c.toString();
+    // solvedMsg(c);
+
+    // cout << "Performing S2 turn:" << endl;
+    // c = cube.S2();
     // cout << c.toString();
     // solvedMsg(c);
 }
