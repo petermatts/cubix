@@ -2,7 +2,6 @@
 #define COMMON_H
 
 // define colors
-
 #define WHITE 0
 #define YELLOW 1 
 #define GREEN 2
@@ -11,7 +10,6 @@
 #define ORANGE 5
 
 // define positions (within face)
-
 #define TOP_LEFT 0
 #define TOP_MIDDLE 3
 #define TOP_RIGHT 6
@@ -54,4 +52,9 @@
 uint32_t get(uint32_t num, int from);
 void set(uint32_t &num, int to, uint32_t set_val);
 
-#endif
+#pragma once
+extern bool __USE_EMOJI;
+
+inline void PRINT_EMOJIS(bool value) { __USE_EMOJI = value; }
+
+#endif // COMMON_H
