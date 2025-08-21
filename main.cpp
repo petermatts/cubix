@@ -16,6 +16,9 @@ int main() {
     cout << cube.toString();
     solvedMsg(cube);
 
+    PRINT_EMOJIS(false);
+    cout << cube.toString();
+
     // cout << WHITE_FACE << endl << YELLOW_FACE << endl << GREEN_FACE << endl
     //      << BLUE_FACE << endl << RED_FACE << endl << ORANGE_FACE << endl;
 

@@ -1,11 +1,10 @@
+#ifndef CUBE_HPP
+#define CUBE_HPP
+
 #include <iostream>
 #include <cstdint>
 #include <string>
-
 #include "common.h"
-
-#ifndef CUBE_H
-#define CUBE_H
 
 class Cube {
     public:
@@ -74,4 +73,4 @@ class Cube {
 
 std::string getColor(uint32_t num);
 
-#endif
+#endif // CUBE_HPP

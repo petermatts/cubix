@@ -47,6 +47,7 @@ target_include_directories(cubix_python PRIVATE ${Python3_INCLUDE_DIRS})
 swig_link_libraries(cubix_python ${Python3_LIB_ONLY} cubix_core)
 
 # Build main executable
+# todo: add compiler optimiztions?
 add_executable(cubix main.cpp)
 target_link_libraries(cubix PRIVATE cubix_core)
 

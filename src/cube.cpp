@@ -1,40 +1,54 @@
+#include "cube.hpp"
+
 #include <vector>
 #include <algorithm>
 
-// #ifdef _WIN32
-// #include <windows.h>
-// #endif
-
-#include "cube.hpp"
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 using namespace std;
 
-string getColor(uint32_t num) {
-    // #ifdef _WIN32
-    // SetConsoleOutputCP(CP_UTF8);
-    // #endif
+bool __USE_EMOJI = true;
 
-    if (num == WHITE)
-        // return "⬜";
-        return "W";
-    else if (num == YELLOW)
-        // return "🟨";
-        return "Y";
-    else if (num == GREEN)
-        // return "🟩";
-        return "G";
-    else if (num == BLUE)
-        // return "🟦";
-        return "B";
-    else if (num == RED)
-        // return "🟥";
-        return "R";
-    else if (num == ORANGE)
-        // return "🟧";
-        return "O";
-    else
-        // cout << num << endl;
-        return "?";
+string getColor(uint32_t num) {
+    if (__USE_EMOJI) {
+        #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+        #endif
+    
+        if (num == WHITE)
+            return "⬜";
+        else if (num == YELLOW)
+            return "🟨";
+        else if (num == GREEN)
+            return "🟩";
+        else if (num == BLUE)
+            return "🟦";
+        else if (num == RED)
+            return "🟥";
+        else if (num == ORANGE)
+            return "🟧";
+        else
+            // cout << num << endl;
+            return "⬛";
+    } else {
+        if (num == WHITE)
+            return "W";
+        else if (num == YELLOW)
+            return "Y";
+        else if (num == GREEN)
+            return "G";
+        else if (num == BLUE)
+            return "B";
+        else if (num == RED)
+            return "R";
+        else if (num == ORANGE)
+            return "O";
+        else
+            // cout << num << endl;
+            return "?";
+    }
 }
 
 Cube::Cube() {
@@ -67,79 +81,80 @@ bool Cube::isSolved() {
 }
 
 string Cube::toString() {
-    string space = "      ";
-    string msg = "";
+    const string square_space = "      ";
+    const char* space = __USE_EMOJI ? "" : " ";
+    string msg = "\n";
 
     // top
-    msg += space;
-    msg += getColor((top << CLEAR_TOP_LEFT) >> CLEAR) + " ";
-    msg += getColor((top << CLEAR_TOP_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((top << CLEAR_TOP_RIGHT) >> CLEAR) + " ";
-    msg += space + space + "\n" + space;
-    msg += getColor((top << CLEAR_MIDDLE_LEFT) >> CLEAR) + " ";
-    msg += getColor((top << CLEAR_CENTER) >> CLEAR) + " ";
-    msg += getColor((top << CLEAR_MIDDLE_RIGHT) >> CLEAR) + " ";
-    msg += space + space + "\n" + space;
-    msg += getColor((top << CLEAR_BOTTOM_LEFT) >> CLEAR) + " ";
-    msg += getColor((top << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((top << CLEAR_BOTTOM_RIGHT) >> CLEAR) + " ";
-    msg += space + space + "\n";
+    msg += square_space;
+    msg += getColor((top << CLEAR_TOP_LEFT) >> CLEAR) + space;
+    msg += getColor((top << CLEAR_TOP_MIDDLE) >> CLEAR) + space;
+    msg += getColor((top << CLEAR_TOP_RIGHT) >> CLEAR) + space;
+    msg += square_space + square_space + "\n" + square_space;
+    msg += getColor((top << CLEAR_MIDDLE_LEFT) >> CLEAR) + space;
+    msg += getColor((top << CLEAR_CENTER) >> CLEAR) + space;
+    msg += getColor((top << CLEAR_MIDDLE_RIGHT) >> CLEAR) + space;
+    msg += square_space + square_space + "\n" + square_space;
+    msg += getColor((top << CLEAR_BOTTOM_LEFT) >> CLEAR) + space;
+    msg += getColor((top << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + space;
+    msg += getColor((top << CLEAR_BOTTOM_RIGHT) >> CLEAR) + space;
+    msg += square_space + square_space + "\n";
 
     // left front right back
-    msg += getColor((left << CLEAR_TOP_LEFT) >> CLEAR) + " ";
-    msg += getColor((left << CLEAR_TOP_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((left << CLEAR_TOP_RIGHT) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_TOP_LEFT) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_TOP_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_TOP_RIGHT) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_TOP_LEFT) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_TOP_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_TOP_RIGHT) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_TOP_LEFT) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_TOP_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_TOP_RIGHT) >> CLEAR) + " ";
+    msg += getColor((left << CLEAR_TOP_LEFT) >> CLEAR) + space;
+    msg += getColor((left << CLEAR_TOP_MIDDLE) >> CLEAR) + space;
+    msg += getColor((left << CLEAR_TOP_RIGHT) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_TOP_LEFT) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_TOP_MIDDLE) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_TOP_RIGHT) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_TOP_LEFT) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_TOP_MIDDLE) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_TOP_RIGHT) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_TOP_LEFT) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_TOP_MIDDLE) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_TOP_RIGHT) >> CLEAR) + space;
     msg += "\n";
-    msg += getColor((left << CLEAR_MIDDLE_LEFT) >> CLEAR) + " ";
-    msg += getColor((left << CLEAR_CENTER) >> CLEAR) + " ";
-    msg += getColor((left << CLEAR_MIDDLE_RIGHT) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_MIDDLE_LEFT) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_CENTER) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_MIDDLE_RIGHT) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_MIDDLE_LEFT) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_CENTER) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_MIDDLE_RIGHT) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_MIDDLE_LEFT) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_CENTER) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_MIDDLE_RIGHT) >> CLEAR) + " ";
+    msg += getColor((left << CLEAR_MIDDLE_LEFT) >> CLEAR) + space;
+    msg += getColor((left << CLEAR_CENTER) >> CLEAR) + space;
+    msg += getColor((left << CLEAR_MIDDLE_RIGHT) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_MIDDLE_LEFT) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_CENTER) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_MIDDLE_RIGHT) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_MIDDLE_LEFT) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_CENTER) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_MIDDLE_RIGHT) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_MIDDLE_LEFT) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_CENTER) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_MIDDLE_RIGHT) >> CLEAR) + space;
     msg += "\n";
-    msg += getColor((left << CLEAR_BOTTOM_LEFT) >> CLEAR) + " ";
-    msg += getColor((left << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((left << CLEAR_BOTTOM_RIGHT) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_BOTTOM_LEFT) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((front << CLEAR_BOTTOM_RIGHT) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_BOTTOM_LEFT) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((right << CLEAR_BOTTOM_RIGHT) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_BOTTOM_LEFT) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((back << CLEAR_BOTTOM_RIGHT) >> CLEAR) + " ";
+    msg += getColor((left << CLEAR_BOTTOM_LEFT) >> CLEAR) + space;
+    msg += getColor((left << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + space;
+    msg += getColor((left << CLEAR_BOTTOM_RIGHT) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_BOTTOM_LEFT) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + space;
+    msg += getColor((front << CLEAR_BOTTOM_RIGHT) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_BOTTOM_LEFT) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + space;
+    msg += getColor((right << CLEAR_BOTTOM_RIGHT) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_BOTTOM_LEFT) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + space;
+    msg += getColor((back << CLEAR_BOTTOM_RIGHT) >> CLEAR) + space;
     msg += "\n";
 
     // bottom
-    msg += space;
-    msg += getColor((bottom << CLEAR_TOP_LEFT) >> CLEAR) + " ";
-    msg += getColor((bottom << CLEAR_TOP_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((bottom << CLEAR_TOP_RIGHT) >> CLEAR) + " ";
-    msg += space + space + "\n" + space;
-    msg += getColor((bottom << CLEAR_MIDDLE_LEFT) >> CLEAR) + " ";
-    msg += getColor((bottom << CLEAR_CENTER) >> CLEAR) + " ";
-    msg += getColor((bottom << CLEAR_MIDDLE_RIGHT) >> CLEAR) + " ";
-    msg += space + space + "\n" + space;
-    msg += getColor((bottom << CLEAR_BOTTOM_LEFT) >> CLEAR) + " ";
-    msg += getColor((bottom << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + " ";
-    msg += getColor((bottom << CLEAR_BOTTOM_RIGHT) >> CLEAR) + " ";
-    msg += space + space + "\n";
+    msg += square_space;
+    msg += getColor((bottom << CLEAR_TOP_LEFT) >> CLEAR) + space;
+    msg += getColor((bottom << CLEAR_TOP_MIDDLE) >> CLEAR) + space;
+    msg += getColor((bottom << CLEAR_TOP_RIGHT) >> CLEAR) + space;
+    msg += square_space + square_space + "\n" + square_space;
+    msg += getColor((bottom << CLEAR_MIDDLE_LEFT) >> CLEAR) + space;
+    msg += getColor((bottom << CLEAR_CENTER) >> CLEAR) + space;
+    msg += getColor((bottom << CLEAR_MIDDLE_RIGHT) >> CLEAR) + space;
+    msg += square_space + square_space + "\n" + square_space;
+    msg += getColor((bottom << CLEAR_BOTTOM_LEFT) >> CLEAR) + space;
+    msg += getColor((bottom << CLEAR_BOTTOM_MIDDLE) >> CLEAR) + space;
+    msg += getColor((bottom << CLEAR_BOTTOM_RIGHT) >> CLEAR) + space;
+    msg += square_space + square_space + "\n";
 
     return msg;
 }
