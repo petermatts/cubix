@@ -1,18 +1,9 @@
+#include "common.hpp"
+#include "cube.hpp"
 #include <cassert>
 #include <iostream>
-#include "cube.hpp"
 
 using namespace std;
-
-uint32_t get(uint32_t num, int from) {
-    return (num << (32-from-3)) >> CLEAR; 
-}
-
-void set(uint32_t &num, int to, uint32_t set_val) {
-    assert(set_val < 8);
-    num &= ~(7 << to);
-    num |= (set_val << to);
-}
 
 Cube Cube::U() {
     uint32_t temp = 0;

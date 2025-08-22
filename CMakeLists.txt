@@ -23,6 +23,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 add_library(cubix_core
     src/cube.cpp
     src/moves.cpp
+    src/common.cpp
 )
 target_include_directories(cubix_core PUBLIC src)
 
@@ -39,7 +40,7 @@ swig_add_library(cubix_python
     SOURCES interface/cubix.i
             src/cube.cpp
             src/moves.cpp
-            # src/common.cpp
+            src/common.cpp
 )
 
 # Link SWIG module with Python and core logic
