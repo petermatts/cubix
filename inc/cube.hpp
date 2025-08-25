@@ -78,15 +78,20 @@ class Cube {
     Cube Y2();
     Cube Z2();
 
+    bool isSolved();
+    std::string toString();
+    
+    // std::array<uint32_t, 6> __get_state();
+    // void __from_state(std::array<uint32_t, 6> state);
+
     friend bool operator==(const Cube &cube1, const Cube &cube2);
     friend bool operator!=(const Cube &cube1, const Cube &cube2);
 
-    bool isSolved();
-    std::string toString();
     std::string __str__();
     std::string __repr__(); //? add more special python support
     bool __eq__(const Cube &other);
     bool __ne__(const Cube &other);
+    
 
     private:
     uint32_t top;
