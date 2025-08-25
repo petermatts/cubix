@@ -4,8 +4,8 @@
 %include <std_vector.i>
 
 %{
-#include "../src/common.hpp"
-#include "../src/cube.hpp"
+#include "../inc/common.hpp"
+#include "../inc/cube.hpp"
 %}
 
-%include "../src/cube.hpp"
+%include "../inc/cube.hpp"
