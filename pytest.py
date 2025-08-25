@@ -10,3 +10,5 @@ cubeR = cube.R()
 print(cube)
 print(cubeU)
 print(cubeR)
+
+print(cubeU == cube.U())

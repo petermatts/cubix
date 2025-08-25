@@ -26,12 +26,7 @@ Cube::Cube(const Cube &cube) {
 Cube::~Cube() = default;
 
 bool Cube::isSolved() {
-    vector<uint32_t> solved_faces = {WHITE_FACE, YELLOW_FACE, GREEN_FACE, BLUE_FACE, RED_FACE, ORANGE_FACE};
-    vector<uint32_t> faces = {top, bottom, left, right, front, back};
-    sort(solved_faces.begin(), solved_faces.end());
-    sort(faces.begin(), faces.end());
-
-    return solved_faces == faces;
+    return *this == Cube();
 }
 
 string Cube::toString() {
@@ -113,10 +108,31 @@ string Cube::toString() {
     return msg;
 }
 
+bool operator==(const Cube &cube1, const Cube &cube2) {
+    vector<uint32_t> faces1 = {cube1.top, cube1.bottom, cube1.left, cube1.right, cube1.front, cube1.back};
+    vector<uint32_t> faces2 = {cube2.top, cube2.bottom, cube2.left, cube2.right, cube2.front, cube2.back};
+    sort(faces1.begin(), faces1.end());
+    sort(faces2.begin(), faces2.end());
+
+    return faces1 == faces2;
+}
+
+bool operator!=(const Cube &cube1, const Cube &cube2) {
+    return !(cube1 == cube2);
+}
+
 string Cube::__str__() {
     return toString();
 }
 
 string Cube::__repr__() {
     return toString();
+}
+
+bool Cube::__eq__(const Cube &other) {
+    return *this == other;
+}
+
+bool Cube::__ne__(const Cube &other) {
+    return *this != other;
 }
