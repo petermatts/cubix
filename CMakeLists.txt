@@ -17,13 +17,24 @@ foreach(lib ${Python3_LIBRARIES})
 endforeach()
 
 # Add the main source directory
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
 # Create a shared library for core logic
 add_library(cubix_core
     src/cube.cpp
-    src/moves.cpp
     src/common.cpp
+    src/moves/B.cpp
+    src/moves/D.cpp
+    src/moves/E.cpp
+    src/moves/F.cpp
+    src/moves/L.cpp
+    src/moves/M.cpp
+    src/moves/R.cpp
+    src/moves/S.cpp
+    src/moves/U.cpp
+    src/moves/X.cpp
+    src/moves/Y.cpp
+    src/moves/Z.cpp
 )
 target_include_directories(cubix_core PUBLIC src)
 
@@ -39,8 +50,19 @@ swig_add_library(cubix_python
     TYPE MODULE
     SOURCES interface/cubix.i
             src/cube.cpp
-            src/moves.cpp
             src/common.cpp
+            src/moves/B.cpp
+            src/moves/D.cpp
+            src/moves/E.cpp
+            src/moves/F.cpp
+            src/moves/L.cpp
+            src/moves/M.cpp
+            src/moves/R.cpp
+            src/moves/S.cpp
+            src/moves/U.cpp
+            src/moves/X.cpp
+            src/moves/Y.cpp
+            src/moves/Z.cpp
 )
 
 # Link SWIG module with Python and core logic
