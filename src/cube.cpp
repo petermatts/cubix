@@ -3,53 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 using namespace std;
-
-bool __USE_EMOJI = true;
-
-string getColor(uint32_t num) {
-    if (__USE_EMOJI) {
-        #ifdef _WIN32
-        SetConsoleOutputCP(CP_UTF8);
-        #endif
-    
-        if (num == WHITE)
-            return "⬜";
-        else if (num == YELLOW)
-            return "🟨";
-        else if (num == GREEN)
-            return "🟩";
-        else if (num == BLUE)
-            return "🟦";
-        else if (num == RED)
-            return "🟥";
-        else if (num == ORANGE)
-            return "🟧";
-        else
-            // cout << num << endl;
-            return "⬛";
-    } else {
-        if (num == WHITE)
-            return "W";
-        else if (num == YELLOW)
-            return "Y";
-        else if (num == GREEN)
-            return "G";
-        else if (num == BLUE)
-            return "B";
-        else if (num == RED)
-            return "R";
-        else if (num == ORANGE)
-            return "O";
-        else
-            // cout << num << endl;
-            return "?";
-    }
-}
 
 Cube::Cube() {
     top = WHITE_FACE;

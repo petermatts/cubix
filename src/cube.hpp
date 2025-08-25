@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cstdint>
 #include <string>
-#include "common.h"
+#include "common.hpp"
 
 class Cube {
     public:
@@ -91,7 +91,5 @@ class Cube {
     uint32_t back;
     uint32_t bottom;
 };
-
-std::string getColor(uint32_t num);
 
 #endif // CUBE_HPP

@@ -1,6 +1,9 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <stdint.h>
+#include <string>
+
 // define colors
 #define WHITE 0
 #define YELLOW 1 
@@ -49,6 +52,7 @@
 // #define RED_FACE (7 << TOP_LEFT) + (7 << TOP_MIDDLE) + (RED << TOP_RIGHT) + (RED << MIDDLE_LEFT) + (RED << CENTER) + (RED << MIDDLE_RIGHT) + (RED << BOTTOM_LEFT) + (RED << BOTTOM_MIDDLE) + (RED << BOTTOM_RIGHT)
 // #define ORANGE_FACE (7 << TOP_LEFT) + (7 << TOP_MIDDLE) + (ORANGE << TOP_RIGHT) + (ORANGE << MIDDLE_LEFT) + (ORANGE << CENTER) + (ORANGE << MIDDLE_RIGHT) + (ORANGE << BOTTOM_LEFT) + (ORANGE << BOTTOM_MIDDLE) + (ORANGE << BOTTOM_RIGHT)
 
+std::string getColor(uint32_t num);
 uint32_t get(uint32_t num, int from);
 void set(uint32_t &num, int to, uint32_t set_val);
 
