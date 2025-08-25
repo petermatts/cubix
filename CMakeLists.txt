@@ -41,7 +41,7 @@ target_include_directories(cubix_core PUBLIC src)
 
 # SWIG configuration
 set_source_files_properties(interface/cubix.i PROPERTIES CPLUSPLUS ON)
-set(CMAKE_SWIG_FLAGS "")
+set(CMAKE_SWIG_FLAGS "-w503")
 
 add_definitions(-DSWIG_PYTHON_INTERPRETER_NO_DEBUG)
 
