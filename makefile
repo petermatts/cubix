@@ -3,6 +3,9 @@
 ##############################################################################
 
 BUILD_DIR := build
+RELEASE_DIR := release
+
+THREADS := 1
 
 .PHONY: clean clean-all all run
 .SILENT: clean clean-all all run
@@ -10,15 +13,23 @@ BUILD_DIR := build
 all:
 	mkdir -p $(BUILD_DIR) && cd $(BUILD_DIR) && \
 	cmake .. && \
-	cmake --$(BUILD_DIR) .
+	cmake --build . --parallel $(THREADS)
 
 	cp $(BUILD_DIR)/Debug/_cubix_python.pyd $(BUILD_DIR)/_cubix_python.pyd
+
+	cp dummy.toml $(BUILD_DIR)/Debug/dummy.toml
+	cp -r tests/solutions $(BUILD_DIR)/tests/
+
+release:
+	mkdir -p $(RELEASE_DIR) && cd $(RELEASE_DIR) && \
+	cmake -DCMAKE_BUILD_TYPE=Release .. && \
+	cmake --build .
 
 run:
 	cd $(BUILD_DIR)/Debug && ./cubix.exe
 
 test:
-	cd build && ctest
+	cd build/tests/Debug && ./cubix_tests.exe
 
 clean:
 	rm -f src/a.exe
@@ -27,5 +38,8 @@ clean:
 	mkdir $(BUILD_DIR)
 	mv _deps $(BUILD_DIR)/_deps
 
+	rm -rf $(RELEASE_DIR)
+
 clean-all:
 	rm -rf $(BUILD_DIR)
+	rm -rf $(RELEASE_DIR)
