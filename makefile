@@ -1,16 +1,31 @@
-.PHONY: clean all run
-.SILENT: clean all run
+##############################################################################
+# Makefile
+##############################################################################
+
+BUILD_DIR := build
+
+.PHONY: clean clean-all all run
+.SILENT: clean clean-all all run
 
 all:
-	mkdir -p build && cd build && \
+	mkdir -p $(BUILD_DIR) && cd $(BUILD_DIR) && \
 	cmake .. && \
-	cmake --build .
+	cmake --$(BUILD_DIR) .
 
-	cp build/Debug/_cubix_python.pyd build/_cubix_python.pyd
+	cp $(BUILD_DIR)/Debug/_cubix_python.pyd $(BUILD_DIR)/_cubix_python.pyd
 
 run:
-	cd build/Debug && ./cubix.exe
+	cd $(BUILD_DIR)/Debug && ./cubix.exe
+
+test:
+	cd build && ctest
 
 clean:
-	rm -rf build
 	rm -f src/a.exe
+	mv $(BUILD_DIR)/_deps _deps
+	rm -rf $(BUILD_DIR)
+	mkdir $(BUILD_DIR)
+	mv _deps $(BUILD_DIR)/_deps
+
+clean-all:
+	rm -rf $(BUILD_DIR)

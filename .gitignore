@@ -4,6 +4,7 @@ docs/notes
 
 # CMake
 build
+_deps
 
 # Prerequisites
 *.d
