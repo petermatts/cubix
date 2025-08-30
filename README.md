@@ -110,3 +110,19 @@ Face Layout:
     </tr>
     </tbody>
 </table>
+
+
+<!-- ### Moves Group
+
+| Move | Composition |
+| ---- | ----------- |
+| I    |             |
+| U    |             |
+| D    |             |
+| L    |             |
+| R    |             |
+| F    |             |
+| B    |             |
+| M    |             |
+| E    |             |
+| S    |             | -->

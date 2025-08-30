@@ -1,17 +1,18 @@
 #include "cube.hpp"
 
+#include <array>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
 Cube::Cube() {
-    top = WHITE_FACE;
-    bottom = YELLOW_FACE;
-    front = GREEN_FACE;
-    back = BLUE_FACE;
-    left = ORANGE_FACE;
-    right = RED_FACE;
+    top = WHITE_FACE; // 0
+    bottom = YELLOW_FACE; // 19173961
+    front = GREEN_FACE; // 38347922
+    back = BLUE_FACE; // 57521883
+    left = ORANGE_FACE; // 95869805
+    right = RED_FACE; // 76695844
 }
 
 Cube::Cube(const Cube &cube) {
@@ -24,6 +25,19 @@ Cube::Cube(const Cube &cube) {
 }
 
 Cube::~Cube() = default;
+
+array<uint32_t, 6> Cube::__get_state() {
+    array<uint32_t, 6> state = {
+        top,
+        front,
+        left,
+        right,
+        back,
+        bottom
+    };
+    
+    return state;
+}
 
 bool Cube::isSolved() {
     return *this == Cube();

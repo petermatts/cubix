@@ -1,6 +1,11 @@
 #include "cube.hpp"
 
+#include <filesystem>
+#include <fstream>
+#include "toml.hpp"
+
 using namespace std;
+namespace fs = filesystem;
 
 void solvedMsg(Cube cube) {
     if(cube.isSolved()) {
@@ -15,6 +20,17 @@ int main() {
     Cube c = Cube();
     cout << cube.toString() << endl;
     solvedMsg(cube);
+
+    std::cout << "Current working directory: " << std::filesystem::current_path() << '\n';
+    
+    try {
+        // toml::table config = toml::parse_file("tests/solutions/solved.toml");
+        toml::table config = toml::parse_file("dummy.toml");
+        cout << config["servers"]["alpha"]["ip"] << endl;
+    } catch (const toml::parse_error& err) {
+        std::cerr << "Error parsing TOML file: " << err << std::endl;
+        return 1;
+    }
 
     // PRINT_EMOJIS(false);
     // cout << cube.toString() << endl;

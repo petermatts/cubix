@@ -5,6 +5,25 @@ project(Cubix LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Enable Fetching External Dependencies
+include(FetchContent)
+
+# GoogleTest
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG v1.17.0
+)
+FetchContent_MakeAvailable(googletest)
+
+# toml++
+FetchContent_Declare(
+    tomlplusplus
+    GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
+    GIT_TAG v3.4.0
+)
+FetchContent_MakeAvailable(tomlplusplus)
+
 # Enable SWIG and Python
 find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
@@ -72,6 +91,9 @@ swig_link_libraries(cubix_python ${Python3_LIB_ONLY} cubix_core)
 # Build main executable
 # todo: add compiler optimiztions?
 add_executable(cubix main.cpp)
+target_include_directories(cubix PRIVATE ${tomlplusplus_SOURCE_DIR}) # todo remove this
 target_link_libraries(cubix PRIVATE cubix_core)
 
-add_subdirectory(tests)
+if(NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_subdirectory(tests)
+endif()

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdint>
 #include <string>
+#include <array>
 #include "common.hpp"
 
 class Cube {
@@ -81,7 +82,7 @@ class Cube {
     bool isSolved();
     std::string toString();
     
-    // std::array<uint32_t, 6> __get_state();
+    std::array<uint32_t, 6> __get_state();
     // void __from_state(std::array<uint32_t, 6> state);
 
     friend bool operator==(const Cube &cube1, const Cube &cube2);

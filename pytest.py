@@ -1,4 +1,6 @@
 from build import cubix
+import pytest
+# ? use unittest library instead
 
 cube = cubix.Cube()
 
@@ -11,4 +13,4 @@ print(cube)
 print(cubeU)
 print(cubeR)
 
-print(cubeU == cube.U())
+assert (cubeU == cube.U())
