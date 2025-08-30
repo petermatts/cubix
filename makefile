@@ -18,12 +18,12 @@ all:
 	cp $(BUILD_DIR)/Debug/_cubix_python.pyd $(BUILD_DIR)/_cubix_python.pyd
 
 	cp dummy.toml $(BUILD_DIR)/Debug/dummy.toml
-	cp -r tests/solutions $(BUILD_DIR)/tests/
+	cp -r tests/solutions $(BUILD_DIR)/tests/Debug
 
 release:
 	mkdir -p $(RELEASE_DIR) && cd $(RELEASE_DIR) && \
 	cmake -DCMAKE_BUILD_TYPE=Release .. && \
-	cmake --build .
+	cmake --build . --parallel $(THREADS)
 
 run:
 	cd $(BUILD_DIR)/Debug && ./cubix.exe

@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "toml.hpp"
 #include "cube.hpp"
+#include "common.hpp"
 
 using namespace std;
 

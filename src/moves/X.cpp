@@ -131,10 +131,10 @@ Cube Cube::X_prime() {
 
     // edges
     temp = get(newCube.right, TOP_MIDDLE);
-    set(newCube.right, TOP_MIDDLE, get(newCube.right, MIDDLE_LEFT));
-    set(newCube.right, MIDDLE_LEFT, get(newCube.right, BOTTOM_MIDDLE));
-    set(newCube.right, BOTTOM_MIDDLE, get(newCube.right, MIDDLE_RIGHT));
-    set(newCube.right, MIDDLE_RIGHT, temp);
+    set(newCube.right, TOP_MIDDLE, get(newCube.right, MIDDLE_RIGHT));
+    set(newCube.right, MIDDLE_RIGHT, get(newCube.right, BOTTOM_MIDDLE));
+    set(newCube.right, BOTTOM_MIDDLE, get(newCube.right, MIDDLE_LEFT));
+    set(newCube.right, MIDDLE_LEFT, temp);
 
     temp = get(newCube.top, MIDDLE_RIGHT);
     set(newCube.top, MIDDLE_RIGHT, get(newCube.back, MIDDLE_LEFT));
