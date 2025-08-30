@@ -584,3 +584,30 @@ TEST_F(MoveTest, b2) {
         EXPECT_TRUE(sol[i] == sat[i]);
     }
 }
+
+TEST_F(MoveTest, checkers1) {
+    array<uint32_t, 6> sol = state("solutions/composite/checkers.toml");
+    array<uint32_t, 6> sat = solved.R2().L2().F2().B2().U2().D2().__get_state();
+
+    for (int i = 0; i < 6; i++) {
+        EXPECT_TRUE(sol[i] == sat[i]);
+    }
+}
+
+TEST_F(MoveTest, checkers2) {
+    array<uint32_t, 6> sol = state("solutions/composite/checkers.toml");
+    array<uint32_t, 6> sat = solved.M2().E2().S2().__get_state();
+
+    for (int i = 0; i < 6; i++) {
+        EXPECT_TRUE(sol[i] == sat[i]);
+    }
+}
+
+TEST_F(MoveTest, scramble) {
+    array<uint32_t, 6> sol = state("solutions/composite/scramble.toml");
+    array<uint32_t, 6> sat = solved.U2().R2().D().F_prime().R2().B2().D().R_prime().D2().B_prime().R2().F2().D2().R2().L2().B().L2().U2().B().__get_state();
+
+    for (int i = 0; i < 6; i++) {
+        EXPECT_TRUE(sol[i] == sat[i]);
+    }
+}
