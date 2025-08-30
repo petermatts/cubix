@@ -112,7 +112,7 @@ Face Layout:
 </table>
 
 
-### Moves Group
+<!-- ### Moves Group
 
 | Move | Composition |
 | ---- | ----------- |
@@ -125,4 +125,4 @@ Face Layout:
 | B    |             |
 | M    |             |
 | E    |             |
-| S    |             |
+| S    |             | -->
