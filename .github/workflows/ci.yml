@@ -37,7 +37,7 @@ jobs:
             # ===== macOS Setup =====
             - name: Install dependencies (macOS)
               if: runner.os == 'macOS'
-              run: brew install cmake
+              run: brew install swig
 
             # ===== Windows Setup =====
             - name: Install dependencies (Windows)
