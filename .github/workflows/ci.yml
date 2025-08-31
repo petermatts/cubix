@@ -56,7 +56,7 @@ jobs:
               run: cmake --build ${{ env.BUILD_DIR }} --config Release
 
             - name: Run tests
-              working-directory: ${{ env.BUILD_DIR }}
+              working-directory: ${{ env.BUILD_DIR }}/tests
               run: ctest --output-on-failure --build-config Release
 
             - name: Upload test logs (if failed)
