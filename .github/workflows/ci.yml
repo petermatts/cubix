@@ -58,7 +58,7 @@ jobs:
             - name: Run tests
               if: runner.os == 'Windows'
               run: |
-                  xcopy solutions Release\solutions /s /e /h /k /y
+                  robocopy solutions Release/solutions /e /mir /r:1 /w:1
                   dir
                   cd Release
                   dir

@@ -87,6 +87,7 @@ swig_add_library(cubix_python
 # Link SWIG module with Python and core logic
 target_include_directories(cubix_python PRIVATE ${Python3_INCLUDE_DIRS})
 # swig_link_libraries(cubix_python ${Python3_LIB_ONLY} cubix_core)
+message(STATUS "Python3_LIBRARIES: ${Python3_LIBRARIES}")
 swig_link_libraries(cubix_python ${Python3_LIBRARIES} cubix_core)
 # swig_link_libraries(cubix_python Python3::Python cubix_core)
 
