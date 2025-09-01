@@ -29,12 +29,6 @@ find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
 find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 
-foreach(lib ${Python3_LIBRARIES})
-    if(lib MATCHES ".*/?python[0-9]+\\.lib$")
-        set(Python3_LIB_ONLY "${lib}")
-    endif()
-endforeach()
-
 # Add the main source directory
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
@@ -88,8 +82,20 @@ swig_add_library(cubix_python
 target_include_directories(cubix_python PRIVATE ${Python3_INCLUDE_DIRS})
 # swig_link_libraries(cubix_python ${Python3_LIB_ONLY} cubix_core)
 message(STATUS "Python3_LIBRARIES: ${Python3_LIBRARIES}")
-swig_link_libraries(cubix_python ${Python3_LIBRARIES} cubix_core)
+# swig_link_libraries(cubix_python ${Python3_LIBRARIES} cubix_core)
 # swig_link_libraries(cubix_python Python3::Python cubix_core)
+
+if(Python3_LIBRARIES MATCHES "optimized;(.+);debug;(.+)")
+    foreach(lib ${Python3_LIBRARIES})
+        if(lib MATCHES ".*/?python[0-9]+\\.lib$")
+            set(Python3_LIB_ONLY "${lib}")
+        endif()
+    endforeach()
+    swig_link_libraries(cubix_python PRIVATE ${Python3_LIB_ONLY} cubix_core)
+else()
+    # Fallback for single-lib scenarios
+    swig_link_libraries(cubix_python PRIVATE ${Python3_LIBRARIES} cubix_core)
+endif()
 
 # Build main executable
 # todo: add compiler optimiztions?

@@ -59,9 +59,7 @@ jobs:
               if: runner.os == 'Windows'
               run: |
                   robocopy solutions Release/solutions /e /mir /r:1 /w:1
-                  dir
                   cd Release
-                  dir
                   .\cubix_tests.exe
               working-directory: ${{ env.BUILD_DIR }}/tests
 
