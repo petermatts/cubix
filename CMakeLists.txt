@@ -94,6 +94,4 @@ add_executable(cubix main.cpp)
 target_include_directories(cubix PRIVATE ${tomlplusplus_SOURCE_DIR}) # todo remove this
 target_link_libraries(cubix PRIVATE cubix_core)
 
-if(NOT CMAKE_BUILD_TYPE STREQUAL "Release")
-    add_subdirectory(tests)
-endif()
+add_subdirectory(tests)
