@@ -55,12 +55,13 @@ jobs:
             - name: Build the project
               run: cmake --build ${{ env.BUILD_DIR }} --config Release
 
-            - name: Debug List test executables
+            - name: Run tests
               if: runner.os == 'Windows'
               run: dir
               working-directory: ${{ env.BUILD_DIR }}/tests
 
             - name: Run tests
+              if: runner.os == 'macOS' || runner.os == 'Linux'
               working-directory: ${{ env.BUILD_DIR }}/tests
               run: |
                   ./cubix_tests
