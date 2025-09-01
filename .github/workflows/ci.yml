@@ -58,8 +58,10 @@ jobs:
             - name: Run tests
               if: runner.os == 'Windows'
               run: |
+                  xcopy "source_folder_name" "..\destination_folder_name" /s /e /h /k /y
                   dir
-                  dir Release
+                  cd Release
+                  dir
                   .\cubix_tests.exe
               working-directory: ${{ env.BUILD_DIR }}/tests
 
