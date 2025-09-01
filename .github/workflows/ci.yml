@@ -57,8 +57,11 @@ jobs:
 
             - name: Run tests
               if: runner.os == 'Windows'
-              run: dir
-              working-directory: ${{ env.BUILD_DIR }}/tests/Release
+              run: |
+                  dir
+                  dir Release
+                  .\cubix_tests.exe
+              working-directory: ${{ env.BUILD_DIR }}/tests
 
             - name: Run tests
               if: runner.os == 'macOS' || runner.os == 'Linux'
