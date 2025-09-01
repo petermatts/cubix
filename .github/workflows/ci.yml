@@ -57,13 +57,13 @@ jobs:
 
             - name: Debug List test executables
               if: runner.os == 'Windows'
-              run: find . -type f -executable
+              run: dir
               working-directory: ${{ env.BUILD_DIR }}
 
             - name: Run tests
               working-directory: ${{ env.BUILD_DIR }}/tests
               run: |
-                  / cubix_tests
+                  ./cubix_tests
                   # ctest --output-on-failure --build-config Release
 
             - name: Upload test logs (if failed)
