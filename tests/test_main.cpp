@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Cube.hpp"  // Adjust if it's in a subfolder
+#include "cube.hpp"
 
 class CubeTest : public ::testing::Test {
 protected:
