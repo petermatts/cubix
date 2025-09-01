@@ -58,7 +58,7 @@ jobs:
             - name: Run tests
               if: runner.os == 'Windows'
               run: dir
-              working-directory: ${{ env.BUILD_DIR }}/tests
+              working-directory: ${{ env.BUILD_DIR }}/tests/Release
 
             - name: Run tests
               if: runner.os == 'macOS' || runner.os == 'Linux'
