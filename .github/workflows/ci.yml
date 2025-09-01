@@ -58,7 +58,7 @@ jobs:
             - name: Debug List test executables
               if: runner.os == 'Windows'
               run: dir
-              working-directory: ${{ env.BUILD_DIR }}
+              working-directory: ${{ env.BUILD_DIR }}/tests
 
             - name: Run tests
               working-directory: ${{ env.BUILD_DIR }}/tests
