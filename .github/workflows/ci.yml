@@ -56,14 +56,15 @@ jobs:
               run: cmake --build ${{ env.BUILD_DIR }} --config Release
 
             - name: Debug List test executables
+              if: runner.os == 'Windows'
               run: find . -type f -executable
               working-directory: ${{ env.BUILD_DIR }}
 
             - name: Run tests
-              working-directory: ${{ env.BUILD_DIR }}
+              working-directory: ${{ env.BUILD_DIR }}/tests
               run: |
-                  ls -lah
-                  ctest --output-on-failure --build-config Release
+                  / cubix_tests
+                  # ctest --output-on-failure --build-config Release
 
             - name: Upload test logs (if failed)
               if: failure()
