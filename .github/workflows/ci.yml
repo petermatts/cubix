@@ -55,6 +55,10 @@ jobs:
             - name: Build the project
               run: cmake --build ${{ env.BUILD_DIR }} --config Release
 
+            - name: Debug: List test executables
+              run: find . -type f -executable
+              working-directory: ${{ env.BUILD_DIR }}
+
             - name: Run tests
               working-directory: ${{ env.BUILD_DIR }}
               run: |
