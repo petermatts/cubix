@@ -1,6 +1,6 @@
 #include "cube.hpp"
 
-Cube Cube::L() {
+Cube Cube::L() const {
     uint32_t temp = 0;
     Cube newCube = *this;
 
@@ -39,7 +39,7 @@ Cube Cube::L() {
     return newCube;
 }
 
-Cube Cube::L_prime() {
+Cube Cube::L_prime() const {
     uint32_t temp = 0;
     Cube newCube = *this;
     
@@ -78,7 +78,7 @@ Cube Cube::L_prime() {
     return newCube;
 }
 
-Cube Cube::L2() {
+Cube Cube::L2() const {
     uint32_t temp = 0;
     Cube newCube = *this;
 
@@ -127,7 +127,7 @@ Cube Cube::L2() {
     return newCube;
 }
 
-Cube Cube::l() {
+Cube Cube::l() const {
     uint32_t temp = 0;
     Cube newCube = *this;
 
@@ -185,7 +185,7 @@ Cube Cube::l() {
     return newCube;
 }
 
-Cube Cube::l_prime() {
+Cube Cube::l_prime() const {
     uint32_t temp = 0;
     Cube newCube = *this;
 
@@ -243,7 +243,7 @@ Cube Cube::l_prime() {
     return newCube;
 }
 
-Cube Cube::l2() {
+Cube Cube::l2() const {
     uint32_t temp = 0;
     Cube newCube = *this;
 

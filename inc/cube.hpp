@@ -5,7 +5,10 @@
 #include <cstdint>
 #include <string>
 #include <array>
+#include <vector>
 #include "common.hpp"
+
+using namespace std;
 
 class Cube {
     public:
@@ -13,83 +16,85 @@ class Cube {
     Cube(const Cube &cube);
     ~Cube();
 
-    Cube U();
-    Cube D();
-    Cube L();
-    Cube R();
-    Cube F();
-    Cube B();
+    Cube U() const;
+    Cube D() const;
+    Cube L() const;
+    Cube R() const;
+    Cube F() const;
+    Cube B() const;
 
-    Cube u();
-    Cube d();
-    Cube l();
-    Cube r();
-    Cube f();
-    Cube b();
+    Cube u() const;
+    Cube d() const;
+    Cube l() const;
+    Cube r() const;
+    Cube f() const;
+    Cube b() const;
 
-    Cube U_prime();
-    Cube D_prime();
-    Cube L_prime();
-    Cube R_prime();
-    Cube F_prime();
-    Cube B_prime();
+    Cube U_prime() const;
+    Cube D_prime() const;
+    Cube L_prime() const;
+    Cube R_prime() const;
+    Cube F_prime() const;
+    Cube B_prime() const;
 
-    Cube u_prime();
-    Cube d_prime();
-    Cube l_prime();
-    Cube r_prime();
-    Cube f_prime();
-    Cube b_prime();
+    Cube u_prime() const;
+    Cube d_prime() const;
+    Cube l_prime() const;
+    Cube r_prime() const;
+    Cube f_prime() const;
+    Cube b_prime() const;
 
-    Cube U2();
-    Cube D2();
-    Cube L2();
-    Cube R2();
-    Cube F2();
-    Cube B2();
+    Cube U2() const;
+    Cube D2() const;
+    Cube L2() const;
+    Cube R2() const;
+    Cube F2() const;
+    Cube B2() const;
 
-    Cube u2();
-    Cube d2();
-    Cube l2();
-    Cube r2();
-    Cube f2();
-    Cube b2();
+    Cube u2() const;
+    Cube d2() const;
+    Cube l2() const;
+    Cube r2() const;
+    Cube f2() const;
+    Cube b2() const;
 
-    Cube M();
-    Cube E();
-    Cube S();
+    Cube M() const;
+    Cube E() const;
+    Cube S() const;
 
-    Cube M_prime();
-    Cube E_prime();
-    Cube S_prime();
+    Cube M_prime() const;
+    Cube E_prime() const;
+    Cube S_prime() const;
 
-    Cube M2();
-    Cube E2();
-    Cube S2();
+    Cube M2() const;
+    Cube E2() const;
+    Cube S2() const;
 
-    Cube X();
-    Cube Y();
-    Cube Z();
+    Cube X() const;
+    Cube Y() const;
+    Cube Z() const;
 
-    Cube X_prime();
-    Cube Y_prime();
-    Cube Z_prime();
+    Cube X_prime() const;
+    Cube Y_prime() const;
+    Cube Z_prime() const;
 
-    Cube X2();
-    Cube Y2();
-    Cube Z2();
+    Cube X2() const;
+    Cube Y2() const;
+    Cube Z2() const;
+
+    Cube apply_moves(const vector<string> &moves);
 
     bool isSolved();
-    std::string toString();
+    string toString();
     
-    std::array<uint32_t, 6> __get_state();
-    // void __from_state(std::array<uint32_t, 6> state);
+    array<uint32_t, 6> __get_state();
+    // void __from_state(array<uint32_t, 6> state);
 
     friend bool operator==(const Cube &cube1, const Cube &cube2);
     friend bool operator!=(const Cube &cube1, const Cube &cube2);
 
-    std::string __str__();
-    std::string __repr__(); //? add more special python support
+    string __str__();
+    string __repr__(); //? add more special python support
     bool __eq__(const Cube &other);
     bool __ne__(const Cube &other);
     
