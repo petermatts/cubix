@@ -1,4 +1,5 @@
 #include "cube.hpp"
+#include "moves.hpp"
 
 using namespace std;
 
@@ -289,6 +290,11 @@ int main() {
 
     // cout << "Performing b2 turn:" << endl;
     // c = cube.b2();
+    // cout << c.toString() << endl;
+    // solvedMsg(c);
+
+    // cout << "Performing move sequence U->U" << endl;
+    // c = cube.apply_moves({moves::U, moves::U});
     // cout << c.toString() << endl;
     // solvedMsg(c);
 }

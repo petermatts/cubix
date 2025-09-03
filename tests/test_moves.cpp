@@ -1,9 +1,11 @@
 #include "gtest/gtest.h"
 #include "toml.hpp"
 #include "cube.hpp"
+#include "moves.hpp"
 #include "common.hpp"
 
 #include <array>
+#include <vector>
 #include <string>
 #include <cstdint>
 #include <stdexcept>
@@ -603,9 +605,19 @@ TEST_F(MoveTest, checkers2) {
     }
 }
 
-TEST_F(MoveTest, scramble) {
+TEST_F(MoveTest, scramble1) {
     array<uint32_t, 6> sol = state("solutions/composite/scramble.toml");
     array<uint32_t, 6> sat = solved.U2().R2().D().F_prime().R2().B2().D().R_prime().D2().B_prime().R2().F2().D2().R2().L2().B().L2().U2().B().__get_state();
+
+    for (int i = 0; i < 6; i++) {
+        EXPECT_TRUE(sol[i] == sat[i]);
+    }
+}
+
+TEST_F(MoveTest, scramble2) {
+    array<uint32_t, 6> sol = state("solutions/composite/scramble.toml");
+    vector<string> moves = {moves::U2, moves::R2, moves::D, moves::F_prime, moves::R2, moves::B2, moves::D, moves::R_prime, moves::D2, moves::B_prime, moves::R2, moves::F2, moves::D2, moves::R2, moves::L2, moves::B, moves::L2, moves::U2, moves::B};
+    array<uint32_t, 6> sat = solved.apply_moves(moves).__get_state();
 
     for (int i = 0; i < 6; i++) {
         EXPECT_TRUE(sol[i] == sat[i]);
